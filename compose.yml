@@ -1,0 +1,60 @@
+services:
+  main:
+    container_name: main
+    build:
+      context: ./
+      args:
+        UID: ${UID}
+        GID: ${GID}
+        UNAME: ${UNAME}
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        NO_PROXY: ${NO_PROXY}
+    image: main
+    volumes:
+      - type: bind
+        source: "./entrypoint.sh"
+        target: "/entrypoint.sh"
+      - type: bind
+        source: "${CONFIG_DIR}"
+        target: "/configs"
+      - type: bind
+        source: "${DATA_DIR}"
+        target: "${DATA_DIR}"
+      - type: bind
+        source: "${MNT_DIR}"
+        target: "/mnt/"
+      - type: volume
+        source: cache-volume
+        target: "/home/${UNAME}/.cache"
+      # docker in container
+      - type: bind
+        source: "${DOCKER_SOCK}"
+        target: /var/run/docker.sock
+      - type: bind
+        source: "${DOCKER_OVERRIDE_CONF}"
+        target: /etc/systemd/system/docker.service.d/override.conf
+        read_only: true
+      - type: bind
+        source: /home/${UNAME}/.ssh
+        target: /home/${UNAME}/.ssh
+    working_dir: "${DATA_DIR}"
+    user: "${UID}:${GID}"
+    group_add:
+      - "${HOST_DOCKER_GID}"
+    environment:
+      UID: ${UID}
+      GID: ${GID}
+      TERM: ${TERM}
+      LANG: ${LANG}
+      http_proxy: ${HTTP_PROXY}
+      https_proxy: ${HTTPS_PROXY}
+      no_proxy: ${NO_PROXY}
+      GIT_USER: ${GIT_USER}
+      GIT_EMAIL: ${GIT_EMAIL}
+    restart: always
+    entrypoint: sh /entrypoint.sh
+    network_mode: host
+
+volumes:
+  cache-volume:

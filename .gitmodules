@@ -1,0 +1,15 @@
+[submodule "config/git"]
+	path = config/git
+	url = ../git/
+[submodule "config/tmux"]
+	path = config/tmux
+	url = ../tmux
+[submodule "config/nvim"]
+	path = config/nvim
+	url = ../nvim
+[submodule "config/zsh"]
+	path = config/zsh
+	url = ../zsh
+[submodule "config/nvim.lua"]
+	path = config/nvim.lua
+	url = ../nvim.lua
