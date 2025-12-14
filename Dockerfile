@@ -66,6 +66,11 @@ make \
 shellcheck \
 socat
 
+# install latest npm and nodejs from n
+RUN npm install -n g && \
+n latest && \
+apt purge -y nodejs npm
+
 # install nodejs package
 RUN npm install -g \
 	neovim \
