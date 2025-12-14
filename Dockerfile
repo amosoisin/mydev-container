@@ -80,7 +80,9 @@ RUN npm install -g \
 	pyright \
 	diagnostic-languageserver \
 	tree-sitter \
-	tree-sitter-cli
+	tree-sitter-cli \
+    typescript-language-server \
+    typescript
 
 USER "${UNAME}"
 
