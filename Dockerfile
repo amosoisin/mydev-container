@@ -103,7 +103,9 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 # install tools for cargo
 ENV CARGO=/home/${UNAME}/.cargo/bin/cargo
-RUN ${CARGO} install ripgrep
+RUN ${CARGO} install \
+ripgrep \
+fd-find
 
 # install zsh plugins and themes
 RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/install.sh
