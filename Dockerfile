@@ -66,11 +66,6 @@ make \
 shellcheck \
 socat
 
-# install latest npm and nodejs from n
-RUN npm install -n g && \
-n latest && \
-apt purge -y nodejs npm
-
 # install nodejs package
 RUN npm install -g \
 	neovim \
@@ -81,8 +76,14 @@ RUN npm install -g \
 	diagnostic-languageserver \
 	tree-sitter \
 	tree-sitter-cli \
-    typescript-language-server \
-    typescript
+	typescript-language-server \
+	typescript
+
+
+# install latest npm and nodejs from n
+RUN npm install -g n && \
+n latest && \
+apt purge -y nodejs npm
 
 USER "${UNAME}"
 
