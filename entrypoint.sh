@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# for claude code
+ln -nfs /configs/claude/CLAUDE.md "${HOME}/.claude/CLAUDE.md"
+
 # for zsh
 ln -nfs /configs/zsh/p10k.zsh "${HOME}/.p10k.zsh"
 ln -nfs /configs/zsh/zshrc "${HOME}/.zshrc"
