@@ -13,3 +13,6 @@
 [submodule "config/nvim.lua"]
 	path = config/nvim.lua
 	url = ../nvim.lua
+[submodule "config/claude"]
+	path = config/claude
+	url = ../claude
