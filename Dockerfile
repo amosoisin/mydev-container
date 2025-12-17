@@ -87,6 +87,9 @@ apt purge -y nodejs npm
 
 USER "${UNAME}"
 
+# install claude
+RUN curl -fsSL https://claude.ai/install.sh | bash
+
 # install lazygit
 RUN go install github.com/jesseduffield/lazygit@latest
 
