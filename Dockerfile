@@ -93,6 +93,9 @@ RUN go install github.com/jesseduffield/lazygit@latest
 # install fzf
 RUN go install github.com/junegunn/fzf@latest
 
+# install docker-language-server
+RUN go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
+
 # install tpm for tmux
 RUN \
 mkdir "/home/${UNAME}/.tmux" && \
