@@ -125,6 +125,7 @@ RUN git clone https://github.com/chrissicool/zsh-256color ~/.oh-my-zsh/custom/pl
 RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
 RUN git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/plugins/zsh-you-should-use
 RUN git clone https://github.com/Aloxaf/fzf-tab.git ~/.oh-my-zsh/custom/plugins/fzf-tab
+RUN git clone https://github.com/wfxr/forgit.git ~/.oh-my-zsh/custom/plugins/forgit
 
 USER root
 
