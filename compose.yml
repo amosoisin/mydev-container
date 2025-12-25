@@ -52,8 +52,11 @@ services:
       no_proxy: ${NO_PROXY}
       GIT_USER: ${GIT_USER}
       GIT_EMAIL: ${GIT_EMAIL}
+    # セキュリティ設定
+    security_opt:
+      - no-new-privileges:true
     restart: always
-    entrypoint: sh /entrypoint.sh
+    entrypoint: bash /entrypoint.sh
     network_mode: host
 
 volumes:

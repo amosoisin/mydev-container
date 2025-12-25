@@ -1,0 +1,50 @@
+# Git関連
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+
+# Claude Code関連
+.claude/
+
+# ドキュメント
+*.md
+README.md
+
+# 環境変数（セキュリティ）
+.env
+.env.*
+
+# Docker関連
+compose.yml
+docker-compose*.yml
+Dockerfile.backup
+
+# ビルドツール
+Makefile
+
+# エディタ・IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ログファイル
+*.log
+
+# 一時ファイル
+tmp/
+temp/
+*.tmp
+
+# キャッシュ
+__pycache__/
+*.pyc
+node_modules/
+.cache/
+
+# バックアップ
+*.bak
+*.backup
