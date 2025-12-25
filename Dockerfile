@@ -112,8 +112,9 @@ ENV CARGO=/home/${UNAME}/.cargo/bin/cargo
 RUN ${CARGO} install \
 ripgrep \
 fd-find \
-exa \
-bat
+eza \
+bat \
+zoxide
 
 # install zsh plugins and themes
 RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/install.sh
