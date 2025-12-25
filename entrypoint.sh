@@ -80,7 +80,7 @@ if [ ! -f "${HOME}/.cache/zsh_history" ]; then
     touch "${HOME}/.cache/zsh_history"
     log "Created zsh history file"
 fi
-create_symlink .cache/zsh_history "${HOME}/.zsh_history"
+create_symlink "${HOME}/.cache/zsh_history" "${HOME}/.zsh_history"
 
 log "=== Container initialization completed ==="
 
