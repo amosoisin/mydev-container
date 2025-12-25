@@ -127,6 +127,7 @@ RUN git clone https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/theme
 RUN git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/plugins/zsh-you-should-use
 RUN git clone https://github.com/Aloxaf/fzf-tab.git ~/.oh-my-zsh/custom/plugins/fzf-tab
 RUN git clone https://github.com/wfxr/forgit.git ~/.oh-my-zsh/custom/plugins/forgit
+RUN git clone https://github.com/zsh-users/zsh-completions.git ~/.oh-my-zsh/custom/plugins/zsh-completions
 
 USER root
 
