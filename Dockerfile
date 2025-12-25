@@ -91,6 +91,25 @@ RUN npm install -g n && \
 n latest && \
 apt-get purge -y nodejs npm
 
+###########################################################
+# Install system tools (Docker) - Low change frequency
+###########################################################
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh ./get-docker.sh && \
+    rm ./get-docker.sh
+
+###########################################################
+# Build Neovim from source - Low change frequency, long build time
+###########################################################
+RUN apt-get remove -y -o DPkg::options::="--force-confdef" neovim && \
+    git clone https://github.com/neovim/neovim.git && \
+    make -C neovim CMAKE_BUILD_TYPE=RelWithDebInfo && \
+    make -C neovim install && \
+    rm -rf neovim
+
+###########################################################
+# User space tools - Medium to high change frequency
+###########################################################
 USER "${UNAME}"
 
 # install claude
@@ -117,6 +136,9 @@ eza \
 bat \
 zoxide
 
+###########################################################
+# Zsh plugins - High change frequency
+###########################################################
 # install zsh plugins and themes
 RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/install.sh && \
     chmod +x /tmp/install.sh && \
@@ -132,27 +154,13 @@ RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/in
     git clone https://github.com/wfxr/forgit.git ~/.oh-my-zsh/custom/plugins/forgit && \
     git clone https://github.com/zsh-users/zsh-completions.git ~/.oh-my-zsh/custom/plugins/zsh-completions
 
+###########################################################
+# Final configuration
+###########################################################
 USER root
 
-# remove neovim package and build from source
-RUN apt-get remove -y -o DPkg::options::="--force-confdef" neovim && \
-    git clone https://github.com/neovim/neovim.git && \
-    make -C neovim CMAKE_BUILD_TYPE=RelWithDebInfo && \
-    make -C neovim install && \
-    rm -rf neovim
-###########################################################
-
-###########################################################
-# for console
+# Set zsh as default shell
 RUN usermod -s /bin/zsh ${UNAME}
-###########################################################
-
-###########################################################
-# get-docker
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
-    sh ./get-docker.sh && \
-    rm ./get-docker.sh
-###########################################################
 
 # aptのキャッシュと不要なパッケージをクリーンアップ
 RUN apt-get autoremove -y && \
