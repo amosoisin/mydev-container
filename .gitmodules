@@ -4,9 +4,6 @@
 [submodule "config/tmux"]
 	path = config/tmux
 	url = ../tmux
-[submodule "config/nvim"]
-	path = config/nvim
-	url = ../nvim
 [submodule "config/zsh"]
 	path = config/zsh
 	url = ../zsh
