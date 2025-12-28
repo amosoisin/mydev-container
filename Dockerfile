@@ -136,6 +136,13 @@ eza \
 bat \
 zoxide
 
+# install lua-language-server
+RUN git clone https://github.com/LuaLS/lua-language-server ~/lua-language-server && \
+cd ~/lua-language-server && \
+chmod +x ./make.sh && \
+./make.sh
+
+
 ###########################################################
 # Zsh plugins - High change frequency
 ###########################################################
