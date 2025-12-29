@@ -63,14 +63,25 @@ make \
 shellcheck \
 socat \
 zsh \
-tmux \
 tree \
 net-tools \
 fping \
 jq \
 iputils-ping \
 squashfs-tools \
-luarocks
+luarocks \
+yacc \
+libevent-dev
+
+# install tmux latest
+RUN git clone https://github.com/tmux/tmux.git /tmp/tmux && \
+cd /tmp/tmux && \
+sh autogen.sh && \
+./configure && \
+make && \
+make install && \
+cd / && \
+rm -rf /tmp/tmux
 
 # install nodejs package
 RUN npm install -g \
