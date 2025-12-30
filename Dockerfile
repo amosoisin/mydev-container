@@ -139,13 +139,16 @@ RUN mkdir "/home/${UNAME}/.tmux" && \
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 # install tools for cargo
-ENV CARGO=/home/${UNAME}/.cargo/bin/cargo
-RUN ${CARGO} install \
+ENV PATH=$PATH:/home/${UNAME}/.cargo/bin/
+RUN cargo install \
 ripgrep \
 fd-find \
 eza \
 bat \
 zoxide
+
+RUN rustup component add \
+rust-analyzer
 
 # install lua-language-server
 RUN git clone https://github.com/LuaLS/lua-language-server ~/lua-language-server && \
