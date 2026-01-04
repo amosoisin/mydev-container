@@ -156,6 +156,9 @@ cd ~/lua-language-server && \
 chmod +x ./make.sh && \
 ./make.sh
 
+# install tools from pip
+RUN pip install --break-system-packages \
+autotools-language-server
 
 ###########################################################
 # Zsh plugins - High change frequency
