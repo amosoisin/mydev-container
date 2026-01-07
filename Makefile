@@ -16,8 +16,8 @@ MNT_DIR := /mnt
 DOCKER_SOCK := /var/run/docker.sock
 DOCKER_OVERRIDE_CONF := /etc/systemd/system/docker.service.d/override.conf
 
-GIT_USER := $(shell git config user.name)
-GIT_EMAIL := $(shell git config user.email)
+GIT_USER := $(shell git config --global user.name)
+GIT_EMAIL := $(shell git config --global user.email)
 
 ENV_LIST = \
 	UNAME \
